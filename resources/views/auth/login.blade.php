@@ -171,20 +171,32 @@
                 <p class="text-on-surface-variant font-body-md">Efficiency meets flavor. Log in to manage your fleet and
                     orders.</p>
             </div>
+            <p>
+                @if ($errors->any())
+                    <div class="mb-4 p-3 bg-red-100 text-red-700 rounded">
+                        <ul class="list-disc list-inside">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif    
+            </p>
             <!-- Login Form -->
-            <form action="#" class="space-y-6" onsubmit="return false;">
+            <form action="{{ route('login.submit') }}" class="space-y-6" method="POST">
+                @csrf
                 <!-- Email Field -->
                 <div class="floating-label-group">
                     <input
                         class="w-full h-14 border border-outline px-4 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200 bg-white"
-                        id="email" placeholder=" " required="" type="email" />
+                        id="email" placeholder=" " required="" type="email" name="email" />
                     <label class="font-label-md" for="email">Email Address</label>
                 </div>
                 <!-- Password Field -->
                 <div class="floating-label-group">
                     <input
                         class="w-full h-14 border border-outline px-4 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200 bg-white"
-                        id="password" placeholder=" " required="" type="password" />
+                        id="password" placeholder=" " required="" type="password" name="password"/>
                     <label class="font-label-md" for="password">Password</label>
                 </div>
                 <!-- Actions Row -->
@@ -205,14 +217,14 @@
                     Sign In
                 </button>
                 <!-- Divider -->
-                <div class="relative py-4">
+                <!-- <div class="relative py-4">
                     <div class="absolute inset-0 flex items-center">
                         <div class="w-full border-t border-outline-variant"></div>
                     </div>
                     <div class="relative flex justify-center text-label-sm">
                         <span class="bg-white px-4 text-on-secondary-fixed-variant font-medium">OR CONTINUE WITH</span>
                     </div>
-                </div>
+                </div> -->
                 <!-- Social Logins -->
                 <!-- <div class="grid grid-cols-2 gap-4">
                     <button

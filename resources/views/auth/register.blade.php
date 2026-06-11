@@ -170,7 +170,8 @@
                 <p class="font-body-md text-on-surface-variant">Create an account to start ordering your favorites.</p>
             </div>
             <!-- Registration Form -->
-            <form class="space-y-4" id="registration-form" onsubmit="event.preventDefault();">
+            <form action="{{ route('register.submit') }}" class="space-y-4" id="registration-form" method="POST">
+                @csrf
                 <!-- Full Name -->
                 <div>
                     <label class="block font-label-md text-on-surface mb-1.5" for="full_name">Full Name</label>
@@ -179,7 +180,7 @@
                             class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">person</span>
                         <input
                             class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-brand text-on-surface input-focus-ring transition-all placeholder:text-on-secondary-fixed-variant"
-                            id="full_name" placeholder="John Doe" type="text" />
+                            id="full_name" placeholder="John Doe" type="text" name="name"/>
                     </div>
                 </div>
                 <!-- Email -->
@@ -190,7 +191,7 @@
                             class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">mail</span>
                         <input
                             class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-brand text-on-surface input-focus-ring transition-all placeholder:text-on-secondary-fixed-variant"
-                            id="email" placeholder="email@example.com" type="email" />
+                            id="email" placeholder="email@example.com" type="email" name="email"/>
                     </div>
                 </div>
                 <!-- Phone Number -->
@@ -201,7 +202,7 @@
                             class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">call</span>
                         <input
                             class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-brand text-on-surface input-focus-ring transition-all placeholder:text-on-secondary-fixed-variant"
-                            id="phone" placeholder="+1 (555) 000-0000" type="tel" />
+                            id="phone" placeholder="+1 (555) 000-0000" type="tel" name="phone"/>
                     </div>
                 </div>
                 <!-- Password Row -->
@@ -213,7 +214,7 @@
                                 class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">lock</span>
                             <input
                                 class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-brand text-on-surface input-focus-ring transition-all placeholder:text-on-secondary-fixed-variant"
-                                id="password" placeholder="••••••••" type="password" />
+                                id="password" placeholder="••••••••" type="password" name="password"/>
                         </div>
                     </div>
                     <div>
@@ -224,7 +225,7 @@
                                 class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">shield</span>
                             <input
                                 class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-brand text-on-surface input-focus-ring transition-all placeholder:text-on-secondary-fixed-variant"
-                                id="confirm_password" placeholder="••••••••" type="password" />
+                                id="confirm_password" placeholder="••••••••" type="password" name="password_confirmation"/>
                         </div>
                     </div>
                 </div>
@@ -245,11 +246,11 @@
                 </button>
             </form>
             <!-- Divider -->
-            <div class="flex items-center gap-4 my-8">
+            <!-- <div class="flex items-center gap-4 my-8">
                 <div class="h-px bg-outline-variant flex-1"></div>
                 <span class="font-label-sm text-on-surface-variant">OR REGISTER WITH</span>
                 <div class="h-px bg-outline-variant flex-1"></div>
-            </div>
+            </div> -->
             <!-- Social Sign Up -->
             <!-- <div class="grid grid-cols-2 gap-4 mb-8">
                 <button
