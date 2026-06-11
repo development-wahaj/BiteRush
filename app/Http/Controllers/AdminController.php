@@ -26,6 +26,11 @@ class AdminController extends Controller
         return view('admin.riders');
     }
 
+    public function fleetTracking()
+    {
+        return view('admin.fleet');
+    }
+
     public function analytics()
     {
         return view('admin.analytics');

@@ -224,6 +224,11 @@
                 <span class="font-label-md text-label-md">Riders</span>
             </a>
             <a class="flex items-center gap-3 text-secondary-fixed-dim hover:text-on-primary-fixed-variant px-4 py-3 mx-2 transition-colors duration-200"
+                href="{{ route('admin.fleet') }}">
+                <span class="material-symbols-outlined" data-icon="delivery_dining">local_shipping</span>
+                <span class="font-label-md text-label-md">Fleet Tracking</span>
+            </a>
+            <a class="flex items-center gap-3 text-secondary-fixed-dim hover:text-on-primary-fixed-variant px-4 py-3 mx-2 transition-colors duration-200"
                 href="{{ route('admin.analytics') }}">
                 <span class="material-symbols-outlined" data-icon="analytics">analytics</span>
                 <span class="font-label-md text-label-md">Analytics</span>
